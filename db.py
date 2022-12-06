@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, ForeignKey
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, String, Float, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -20,6 +20,8 @@ class Cliente(Base):
     id = Column(Integer, primary_key=True)
     nome = Column(String, nullable=False)
     endereco = Column(String, nullable=False)
+    cpf = Column(String, nullable=False)
+    email = Column(String, nullable=False)
 
     def __repr__(self):
         return f"Cliente {self.nome}"
@@ -31,6 +33,7 @@ class Produto(Base):
     id = Column(Integer, primary_key=True)
     nome = Column(String, nullable=False)
     preco = Column(Float, nullable=False)
+    descricao = Column(Text, nullable=False)
 
     def __repr__(self) -> str:
         return f"Produto {self.nome}"
@@ -38,6 +41,7 @@ class Produto(Base):
 
 class Carrinho(Base):
     __tablename__ = "carrinho"
+
     id = Column(Integer, primary_key=True)
     preco = Column(Float, nullable=False)
     qtd = Column(Integer, nullable=False)
