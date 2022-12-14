@@ -186,7 +186,7 @@ def carrinho(id_carrinho=None):
 
 
 @app.route("/venda", methods=["GET", "POST"])
-@app.route("/vendaa/<int:id_venda>", methods=["GET", "PUT", "DELETE"])
+@app.route("/venda/<int:id_venda>", methods=["GET", "PUT", "DELETE"])
 def venda(id_venda=None):
     if request.method == "GET":
         if id_venda:
